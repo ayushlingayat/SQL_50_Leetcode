@@ -1,4 +1,5 @@
 --Write your MySQL query statement below
-SELECT IFNULL(unique_id,NULL) AS unique_id, name FROM Employees
-LEFT JOIN EmployeeUNI 
-ON EmployeeUNI.id = Employees.id;
+select eu.unique_id,em.name 
+from Employees em 
+left join EmployeeUNI eu
+on em.id = eu.id
