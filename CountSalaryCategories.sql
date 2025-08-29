@@ -1,0 +1,2 @@
+
+select category, ifnull(accounts_count, 0) as accounts_count from (select case when income < 20000 then 'Low Salary' when income between 20000 and 50000 then 'Average Salary' when income > 50000 then 'High Salary' end as category, count(1) as accounts_count from accounts group by category) as a right join (select 'Low Salary' as category union select 'Average Salary' as category union select 'High Salary' as category) as b using(category);
